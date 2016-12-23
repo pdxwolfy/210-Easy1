@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+      <script>
+/* global show, log, theEnd */
+
+'use strict';
+
+// def arrange(shorter, longer)
+//   print shorter + longer + shorter
+//
+// if string1 shorter than string2 then
+//   arrange(string1, string2)
+// else
+//   arranger(string2, string1)
+
+var arrange = function arrange(shorter, longer) {
+  return shorter + longer + shorter;
+};
+
+var shortLongShort = function shortLongShort(string1, string2) {
+  if (string1.length < string2.length) {
+    return arrange(string1, string2);
+  } else {
+    return arrange(string2, string1);
+  }
+};
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+log(shortLongShort('abc', 'defgh'), 'abcdefghabc');
+log(shortLongShort('abcde', 'fgh'), 'fghabcdefgh');
+log(shortLongShort('', 'xyz'),      'xyz');
+log(shortLongShort('xyz', ''),      'xyz');
+theEnd();
+      </script>
+    </pre>
+  </body>
+</html>

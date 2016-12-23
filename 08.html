@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+      <script>
+/* global show, log, theEnd */
+
+'use strict';
+
+// isLeapYear?
+//   return true if year divisible by 400
+//   return false if year divisible by 100
+//   return true if year divisble by 4
+//   return false
+//
+// Input: assume year > 0 and year is an integer
+// Output: true if leap year, false if not leap year
+
+var isLeapYear = function isLeapYear(year) {
+  if (year % 400 === 0) {
+    return true;
+  } else if (year % 100 === 0) {
+    return false;
+  } else if (year % 4 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+log(isLeapYear(2016),   true);
+log(isLeapYear(2015),   false);
+log(isLeapYear(2100),   false);
+log(isLeapYear(2400),   true);
+log(isLeapYear(240000), true);
+log(isLeapYear(240001), false);
+log(isLeapYear(2000),   true);
+log(isLeapYear(1900),   false);
+log(isLeapYear(1752),   true);
+log(isLeapYear(1700),   false);
+log(isLeapYear(1),      false);
+log(isLeapYear(100),    false);
+log(isLeapYear(400),    true);
+theEnd();
+      </script>
+    </pre>
+  </body>
+</html>

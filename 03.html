@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+
+      <script>
+/* global show, log, theEnd */
+
+'use strict';
+
+var SQUARE_FEET_PER_METER = 10.7639;
+var roomLength;
+var roomWidth;
+var squareMeters;
+var squareFeet;
+
+function getNumber(message) {
+  return parseInt(prompt(message), 10);
+}
+
+roomLength = getNumber('What is the length of the room in meters?');
+roomWidth = getNumber('What is the width of the room in meters?');
+squareMeters = (roomLength * roomWidth).toFixed(2);
+squareFeet = (squareMeters * SQUARE_FEET_PER_METER).toFixed(2);
+
+show('The area of the room is ' + squareMeters +
+     ' square meters (' +  squareFeet +
+     ' square feet).');
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+theEnd();
+      </script>
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+
+      <script>
+/* global show, log, theEnd */
+
+'use strict';
+
+var SQUARE_FEET_PER_METER = 10.7639;
+var UNIT_MEASURE = { f: 'feet', m: 'meters' };
+var VALID_UNITS = ['feet', 'meters'];
+
+var getNumber = function getNumber(message) {
+  return parseInt(prompt(message), 10);
+};
+
+var getUnits = function getUnits() {
+  var measure = prompt('Enter dimensions in (m)eters or (f)eet?').toLowerCase();
+  var units = UNIT_MEASURE[measure] || measure;
+  return VALID_UNITS.indexOf(units) === -1 ? null : units;
+};
+
+var getValidUnits = function getValidUnits() {
+  var units;
+
+  while (!units) {
+    units = getUnits();
+  }
+
+  return units;
+};
+
+var report = {
+  feet:
+    function inFeet(area) {
+      var squareMeters = area / SQUARE_FEET_PER_METER;
+
+      show('The area of the room is ' + area.toFixed(2) +
+           ' square feet (' +  squareMeters.toFixed(2) +
+           ' square meters).');
+    },
+  meters:
+    function inMeters(area) {
+      var squareFeet = area * SQUARE_FEET_PER_METER;
+
+      show('The area of the room is ' + area.toFixed(2) +
+           ' square meters (' +  squareFeet.toFixed(2) +
+           ' square feet).');
+    },
+};
+
+var units = getValidUnits();
+var roomLength = getNumber('What is the length of the room in ' + units + '?');
+var roomWidth = getNumber('What is the width of the room in ' + units + '?');
+report[units](roomLength * roomWidth);
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+theEnd();
+      </script>
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+      <script>
+/* global show, log, theEnd */
+
+'use strict';
+
+// ask user for bill amount
+// ask user for tip percentage (enter in range 20 ->20%)
+// calculate tip amount (percentage * amount / 100) and display
+// calculate total bill (with tip) and display
+
+var getNumber = function getNumber(promptMessage) {
+  return parseFloat(prompt(promptMessage));
+};
+
+var billAmount = getNumber('What is the total bill amount?');
+var tipPercentage = getNumber('What is the tip percentage?');
+var tipAmount = (billAmount * tipPercentage / 100).toFixed(2);
+var totalBill = (billAmount + Number(tipAmount)).toFixed(2);
+
+show('Bill amount: $' + billAmount.toFixed(2));
+show('Tip percentage: ' + String(tipPercentage) + '%');
+show('Tip amount: $' + tipAmount);
+show('Total bill: $' + totalBill);
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+theEnd();
+      </script>
+    </pre>
+  </body>
+</html>

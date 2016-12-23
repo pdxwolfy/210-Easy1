@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+var number;
+var start;
+var end;
+
+/* global show, log, theEnd */
+
+function getNumber(message) {
+  return parseInt(prompt(message), 10);
+}
+
+function isOdd(value) {
+  return value % 2 === 1;
+}
+
+start = getNumber('Enter the starting number:');
+end = getNumber('Enter the ending number:');
+for (number = start; number <= end; ++number) {
+  if (isOdd(number)) {
+    show(number);
+  }
+}
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+
+theEnd();
+
+    </script>
+  </body>
+</html>

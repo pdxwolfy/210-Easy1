@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+var number;
+
+/* global show, log, theEnd */
+
+number = 1;
+while (number <= 99) {
+  if (number % 2 === 1) {
+    show(number);
+  }
+
+  number += 1;
+}
+
+/* eslint-disable vars-on-top */
+/* eslint-disable no-magic-numbers */
+
+theEnd();
+
+    </script>
+  </body>
+</html>
